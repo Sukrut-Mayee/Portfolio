@@ -1,0 +1,203 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #f8f8f8;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    background: transparent;
+}
+
+/* Background */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Default clear background */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('images/background.png'); /* ✅ Make sure path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    transition: filter 0.5s ease;
+    filter: blur(0px);
+}
+
+/* When scrolled – apply blur */
+body.blurred .background-layer {
+    filter: blur(8px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+.overlay {
+    z-index: 2;
+    text-align: center;
+    background: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+.overlay h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-down {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #fefefe;
+    animation: bounce 2s infinite;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Cards Section */
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 80px 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    border-radius: 16px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInCard 1s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card a {
+    text-decoration: none;i
+    color: #ffffff;
+    display: block;
+}
+
+.card h3 {
+    color: #ffe7f7;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.card p {
+    color: #e6f7ff;
+    font-size: 0.95rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content Sections */
+section:not(.hero) {
+    padding: 60px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1100px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+section:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Link styling */
+a {
+    color: #ffd2ec;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
